@@ -1,33 +1,18 @@
-import React from 'react'
+import React from 'react';
 
 class BadgeForm extends React.Component {
-
-    state = {};
       
-    // handleChange = (e) => {
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
-
     handleClick = (e) => {
-        // console.log("Presiono botón")
+        console.log("Presiono botón")
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-
-        // console.log("Submmit del formulario")
-
-        console.log(this.state)
-    }
 
     render() {
         return (
             <div>
                 <h1>New Attendant</h1>
 
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.props.onSubmit}>
                     <div className="form-group">
                         <label>First Name</label>
                         <input onChange={this.props.onChange} 
@@ -51,8 +36,8 @@ class BadgeForm extends React.Component {
                         <input onChange={this.props.onChange} 
                             className="form-control" 
                             type="email" 
-                            name="Email"
-                            value={this.props.formValues.Email}></input>
+                            name="email"
+                            value={this.props.formValues.email}></input>
                     </div>
 
                     <div className="form-group">
@@ -73,7 +58,9 @@ class BadgeForm extends React.Component {
                             value={this.props.formValues.twitter}></input>
                     </div>
 
-                    <button onClick={this.handleClick} className="btn btn-primary">Save</button>
+                    <button 
+                        onClick={this.handleClick}
+                        className="btn btn-primary">Save</button>
                 </form>
             </div>
         )

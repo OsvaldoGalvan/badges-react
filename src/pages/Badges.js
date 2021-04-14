@@ -39,22 +39,11 @@ class Badges extends React.Component {
         }
     }
     componentDidUpdate(prevProps, prevState){
-        // console.log('5. componentDidUpdate()')
 
-        // console.log({
-        //     prevProps:prevProps,
-        //     prevState:prevState
-        //     }
-        // )
-
-        // console.log({
-        //     props: this.props, state: this.state
-        // })
     }
     
     componentWillUnmount(){
-        // console.log('6. componentWillUnmount()')
-        // clearTimeout(this.timeoutId)
+
     }
 
 
