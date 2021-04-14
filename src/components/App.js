@@ -8,7 +8,7 @@ import Badges from '../pages/Badges'
 import BadgeNew from '../pages/BadgeNew'
 import BadgeEdit from '../pages/BadgeEdit'
 import NotFound from '../pages/NotFound'
-import BadgeDetails from '../pages/BadgeDetails'
+import BadgeDetails from '../pages/BadgeDetailsContainer'
 
 function App(){
     return (
