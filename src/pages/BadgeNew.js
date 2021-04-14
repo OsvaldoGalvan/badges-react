@@ -6,11 +6,13 @@ import header from '../images/platziconf-logo.svg'
 
 import Badge from '../components/Badge.js'
 import BadgeForm from '../components/BadgeForm.js'
-
+import PagsLoading from '../components/PageLoading'
 import api from '../api'
 
 class BadgeNew extends React.Component {
     state = {
+        loading: false,
+        error: null,
         form : {
             firstName :'',
             lastName : '',
@@ -32,21 +34,27 @@ class BadgeNew extends React.Component {
 
     handleSubmit = async e => {
         e.preventDefault()
-        const hash =  md5(this.state.form.email)
 
+        const hash =  md5(this.state.form.email)
         this.state.form.avatarUrl = `https://s.gravatar.com/avatar/${hash}?id=identicon`
 
         this.setState({loading:true, error:null})
 
         try {
-            await api.badges.create(this.state.form)
+            api.badges.create(this.state.form)
             this.setState({loading:false})
+
+            this.props.history.push('/Badges')
+            
         } catch (error){
             this.setState({loading:false, error:error})
         }
     }
 
     render(){
+        if (this.state.loading) {
+            return <PagsLoading />
+        }
         return (
             <React.Fragment>
        
@@ -71,7 +79,9 @@ class BadgeNew extends React.Component {
                             <BadgeForm 
                                 onChange={this.handleChange}
                                 onSubmit={this.handleSubmit}
-                                formValues={this.state.form}/>
+                                formValues={this.state.form}
+                                error={this.state.error}
+                                />
                         </div>
                     </div>
                 </div>
