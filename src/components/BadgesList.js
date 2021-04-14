@@ -1,6 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import Gravatar from './Gravatar'
+
+import './styles/BadgesList.css';
+
+class BadgesListItem extends React.Component {
+    render() {
+      return (
+        <div className="BadgesListItem">
+          <img src={this.props.badge.avatarUrl} alt="Avatar" className="BadgesListItem__avatar"/>
+          <div>
+            <strong>
+              {this.props.badge.firstName} {this.props.badge.lastName}
+            </strong>
+            <br />@{this.props.badge.twitter}
+            <br />
+            {this.props.badge.jobTitle}
+          </div>
+        </div>
+      );
+    }
+  }
 
 class BadgesList extends React.Component {
     render(){
@@ -19,17 +38,11 @@ class BadgesList extends React.Component {
                     {this.props.badges.map((badge) => 
                     {
                         return (
-                            <li key={badge.id} className="BadgesListItem">
-                            {/* <Gravatar className="BadgesListItem__avatar" email={badge.email} alt="Avatar"/> */}
-                            <img src={badge.avatarUrl} alt="Avatar" className="BadgesListItem__avatar"/>
-                            <div>
-                                <div><strong>{badge.firstName} {badge.lastName}</strong></div>
-                                <div className="Twitter__name">
-                                <span className="Twitter__logo"></span>@{badge.twitter}
-                                </div>
-                                <div>{badge.jobTitle}</div>
-                            </div>
-                        </li>
+                            <li key={badge.id}>
+                                <Link className="text-reset text-decoration-none" to={`/badges/${badge.id}/edit`}>
+                                    <BadgesListItem badge={badge}></BadgesListItem>
+                                </Link>
+                            </li>
                         )
                     })}
                 </ul>

@@ -11,9 +11,7 @@ class Badge extends React.Component {
         const lastName  = this.props.lastName
         const jobTitle  = this.props.jobTitle
         const twitter  = this.props.twitter
-        
-        
-
+     
         return (
             <div className="Badge">
                 <div className="Badge__header">
@@ -21,7 +19,7 @@ class Badge extends React.Component {
                 </div>
 
                 <div className="Badge__section-name"> 
-                    <Gravatar className="Badge__avatar" email={this.props.email} />
+                    <Gravatar className="Badge__avatar" email={this.props.email} avatarUrl={this.props.avatarUrl} />
                     <h1>{firstName}<br/> {lastName}</h1>
                 </div>
 
