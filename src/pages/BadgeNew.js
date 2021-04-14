@@ -41,7 +41,7 @@ class BadgeNew extends React.Component {
         this.setState({loading:true, error:null})
 
         try {
-            api.badges.create(this.state.form)
+            await api.badges.create(this.state.form)
             this.setState({loading:false})
 
             this.props.history.push('/Badges')
