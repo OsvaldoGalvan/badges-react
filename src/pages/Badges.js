@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import './styles/Badges.css'
 import confLogo from '../images/badge-header.svg'
 import BadgesList from '../components/BadgesList'
-import PageLoading from '../components/PageLoading'
+// import PageLoading from '../components/PageLoading'
+import Blogpost from '../components/Blogpost'
 import PageError from '../components/PageError'
 
 import api from '../api'
@@ -59,7 +60,8 @@ class Badges extends React.Component {
 
     render() {
         if (this.state.loading === true){
-            return <PageLoading />
+            return <Blogpost />
+           // return <PageLoading />
         }
 
         if (this.state.error){
