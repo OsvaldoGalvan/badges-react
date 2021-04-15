@@ -1,6 +1,6 @@
-import React from 'react'
-import Skeleton from 'react-loading-skeleton'
- 
+import React from "react";
+import Skeleton from "react-loading-skeleton";
+
 class Blogpost extends React.Component {
   render() {
     return (
@@ -12,5 +12,4 @@ class Blogpost extends React.Component {
   }
 }
 
-
-export default Blogpost
+export default Blogpost;
